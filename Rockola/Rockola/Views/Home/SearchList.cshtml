@@ -1,0 +1,47 @@
+﻿@model List<Google.Apis.YouTube.v3.Data.SearchResult>
+
+
+<div class="row">
+    <div class="col-md-4">
+
+        @foreach (var item in Model)
+        {
+            @item.Snippet.Title <br /> <br />
+            @*<label>@item.Id.VideoId</label>*@
+
+            <p><a class="btn btn-default" href="javascript:void(0)" onclick="btnAddToPlaylist()">Agregar a la Playlist</a></p>
+            <hr/>
+
+            <div class="item">
+                <!--width="560" height="315"-->
+                <iframe width="187" height="105" src="https://www.youtube.com/embed/@item.Id.VideoId" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        }
+
+    </div>
+
+    <div class="col-md-1">
+
+    </div>
+
+    <div class="col-md-7">
+        <!--Z-0vPQYHyjI-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PYMxwyNM4Zk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<script>
+    function btnAddToPlaylist() {
+        @*$.ajax(
+            {
+                url: '@Url.Action("SearchList")?Keyword=' + $('#txtkeyword').val(),
+                type: 'GET',
+                success: function (result) {
+                    //response
+                    $('#ListYoutube').html(result);
+                }
+            });*@
+    }
+</script>
+

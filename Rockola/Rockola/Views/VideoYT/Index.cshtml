@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Rockola.Models.VideoYT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create")
+</p>
+<table class="table">
+    <th>videoName</th>
+    <th>videoId</th>
+    <th</th>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.videoName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.videoId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /*id = item.id */}) |
+                @Html.ActionLink("Delete", "Delete", new { /*id = item.id */})
+            </td>
+        </tr>
+    }
+
+</table>

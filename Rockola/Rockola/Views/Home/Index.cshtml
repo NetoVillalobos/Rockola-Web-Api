@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Rockola</h2>
+        <p>
+            <input type="text" class="form-control" id="txtkeyword" placeholder="Busque su canción" />
+        </p>
+        <p><a class="btn btn-default" href="javascript:void(0)" onclick="btnSearch()">Buscar</a></p>
+
+        <p><a class="btn btn-default" href="javascript:void(0)" onclick="btnHistory()">Historial</a></p>
+
+        <div class="col-md-4">
+            <div class="container" id="ListYoutube">
+
+            </div>
+        </div>
+
+    </div>
+    @*<div class="col-md-4">
+        <div class="container" id="ListYoutube">
+
+        </div>
+    </div>*@
+</div>
+
+<hr />
+<h3>PlayList</h3>
+
+<div style="overflow-x:scroll;">
+    <table class="table table-striped table-bordered table-hover">
+        <tr id="playlist" style="overflow-x:scroll;"></tr>
+    </table>
+</div>
+
+<script>
+
+    function btnSearch() {
+        $.ajax(
+            {
+                url: '@Url.Action("SearchList")?Keyword=' + $('#txtkeyword').val(),
+                type: 'GET',
+                success: function (result) {
+                    //response
+                    $('#ListYoutube').html(result);
+                }
+            });
+    }
+
+    //function btnHistory() {
+    //    $.ajax(
+    //        {
+    //            url: 'http://localhost:7020/api/historialt',
+    //            type: 'GET',
+    //            success: function (result) {
+    //                //response
+    //                $('#ListHistory').html(result);
+    //            }
+    //        });
+    //}
+
+</script>
